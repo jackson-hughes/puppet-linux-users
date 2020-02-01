@@ -1,18 +1,18 @@
 class linuxusers {
   user {'jhughes':
-    name           => 'jhughes',
-    groups         => 'wheel',
-    state          => present,
-    shell          => '/bin/bash',
-    purge_ssh_keys => true,
+    ensure          => present,
+    name            => 'jhughes',
+    groups          => 'wheel',
+    shell           => '/bin/bash',
+    purge_ssh_keys  => true,
   }
 
   file { '/etc/sudoers.d/jhughes_all':
-    state  => present,
-    source => 'puppet:///jhughes_sudoers.txt',
-    owner  => 'root',
-    group  => 'root',
-    mode   => 0644,
+    ensure  => present,
+    source  => 'puppet:///jhughes_sudoers.txt',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
   }
 
   ssh_authorized_key {'jhughes@orange':
