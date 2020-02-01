@@ -1,10 +1,9 @@
 class linuxusers {
-  user {'jhughes':
-    ensure          => present,
-    name            => 'jhughes',
-    groups          => 'wheel',
-    shell           => '/bin/bash',
-  }
+  lookup('users', Hash, 'hash').each | String $username, Hash $attrs | {
+    user { $username:
+      * => $attrs,
+    }
+}
 
   file { '/etc/sudoers.d/jhughes_all':
     ensure  => present,
