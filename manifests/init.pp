@@ -8,7 +8,7 @@ class linuxusers {
 
   file { '/etc/sudoers.d/jhughes_all':
     ensure  => present,
-    source  => 'puppet:///jhughes_sudoers.txt',
+    source  => 'puppet:///modules/linuxusers/jhughes_sudoers.txt',
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
