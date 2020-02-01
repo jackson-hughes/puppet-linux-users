@@ -4,7 +4,6 @@ class linuxusers {
     name            => 'jhughes',
     groups          => 'wheel',
     shell           => '/bin/bash',
-    purge_ssh_keys  => true,
   }
 
   file { '/etc/sudoers.d/jhughes_all':
