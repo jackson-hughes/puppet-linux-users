@@ -1,1 +1,0 @@
-jhughes	ALL=(ALL) NOPASSWD: ALL
