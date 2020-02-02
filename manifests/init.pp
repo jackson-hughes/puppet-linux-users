@@ -1,3 +1,4 @@
+# linuxusers manages user accounts from hiera
 class linuxusers {
   lookup('users', Hash, 'hash').each | String $username, Hash $attrs | {
     user { $username:
@@ -5,7 +6,7 @@ class linuxusers {
     }
 
     file { "/etc/sudoers.d/${username}_all":
-      ensure => present,
+      ensure  => present,
       content => "${username} ALL=(ALL) NOPASSWD: ALL"
     }
 }
